@@ -6,6 +6,7 @@ const app = express();
 require("./db/conn");
 const Users = require("./models/registration");
 const { urlencoded } = require("body-parser");
+
 const port = process.env.PORT||8001;
 const staticPath = path.join(__dirname,"../public");
 const templatesPath = path.join(__dirname,"./templates/views");
