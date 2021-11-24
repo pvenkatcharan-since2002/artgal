@@ -4,6 +4,7 @@ const hbs =  require("hbs");
 const nodemailer = require("nodemailer");
 const app = express();
 require("./db/conn");
+const Posts = require("./models/post");
 const Users = require("./models/registration");
 const { urlencoded } = require("body-parser");
 
@@ -15,6 +16,7 @@ console.log(templatesPath);
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.set("view engine","hbs");
+
 app.set("views",templatesPath);
 hbs.registerPartials(partialsPath);
 //app.use(express.static("public"));
@@ -121,6 +123,68 @@ app.post("/login",async(req,res)=>{
         
     }
 })
+
+
+// getting all the posts posted 
+
+app.get("/ViewAll", async(req,res)=>{
+   //res.send("I'm from view all");
+   try {
+    const viewallusers = await Posts.findById();
+    const allusers = await Promise.all(
+        viewallusers.map((key)=>{
+            Posts.find();
+        })
+    );
+    res.json(viewallusers);
+    // res.send(allusers);
+    // console.log(allusers);
+
+    
+    res.send()
+    console.log(allusers);
+    res.render("ViewAllPosts",{
+        authorname : author,
+        image : image,
+        desc : desc
+
+    });
+       
+   } catch (error) {
+       console.log("Error occured while visiting the all posts");
+   }
+})
+
+
+app.get("/Posts", (req,res)=>{
+   res.render("Post");
+})
+
+app.post("/Post",async(req,res)=>{
+    
+   try {
+
+    const author = req.body.author;
+    const desc = req.body.desc;
+    const image = req.body.image;
+
+    console.log(author);
+    console.log(desc);
+    //console.log(image);
+    const createdPost = new Posts({
+       author,desc,image});
+
+    await createdPost.save();
+
+    res.send("Post created successfully");
+       
+   } catch (error) {
+      console.log(error);
+   }
+})
+
+
+
 app.listen(port,()=>{
     console.log("connect to the server on the port : "+port);
 })

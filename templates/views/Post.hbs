@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{>links}}
+    <title>Welcome | ArtGalleryExpo</title>
+</head>
+<body>
+    {{>registerd_navbar}}
+    <div class="container">
+        
+        <div class="row">
+            {{!-- getting the logged in user details --}}
+            <form method="POST" action="/Post">
+            <div class="col-lg-8">
+            
+                    <input type="text" class="form-control" name="author"  placeholder="What is the name of the post">
+                
+
+            </div>
+            <div class="col-lg-8">
+               <textarea name="desc" id="" cols="30" rows="10" placeholder="Write someting here.."></textarea>
+            </div>
+            <div class="col-lg-8">
+                <input type="file" class="form-control" name="image">
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -4,77 +4,174 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
     <title>Art Gallery Expo</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- navigation bar starts from here -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+    <!-- navbar goes here -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navigation">
+        <a class="navbar-brand" href="/">Art Gallery Expo</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/Gallery">Gallery</a>
+              <a class="nav-link" href="#">Arts</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/Signu up">Sign up</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/Login">Login</a>
-              </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/about us">About Us</a>
+              <a class="nav-link" href="#">Contact Us</a>
             </li>
-            
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
           </ul>
         </div>
       </nav>
-    <!-- navigation ends here -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="card-body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat earum, dolore sequi, amet voluptas tempore eius qui iusto deleniti architecto tempora, 
-                        praesentium repellat? Aspernatur, id iusto beatae laudantium perspiciatis doloribus?
-                    </div>
-                    <div class="user-content">
-                        <p class="text">Name : Goutham</p>
-                        <p class="text">Email : abc@gmail.com</p>
-                        <p class="text">Mobile : +91 1234567890</p>
+    <!-- navbar ends here -->
+  <div class="container-fluid upperpart mb-5">
+    <p class="text website">ART GALLERY EXPO</p>
+      <div class="row">
+        
+          <div class="col-lg-3">
+              <div class="card">
+                  <div class="card-body">
+                      <div class="card-content">
+                          <img src="first.jpg" alt="first image" class="img img-fluid">
+                          <p class="text">
+                              Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                              Voluptatem, suscipit mollitia. Pariatur eius asperiores reprehenderit vel doloremque! 
+                              Impedit quod accusamus, repudiandae facilis voluptatum officia odit rerum culpa ipsa eveniet iusto.
+                          </p>
 
+                          <div class="user-details">
+                              <p class="text">Artist Name : Ganendhar</p>
+                              <p class="text">Contact No: +91 123489291</p>
+                              <p class="text">Email id : abc@gmail.com</p>
+                          </div>
+                          <button class="btn btn-md btn-info">Contact Artist</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="card" style="opacity: 70%;">
+                <div class="card-body">
+                    <div class="card-content">
+                        <img src="second.jpg" alt="first image" class="img img-fluid" style="height: 180px;">
+                        <p class="text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Voluptatem, suscipit mollitia. Pariatur eius asperiores reprehenderit vel doloremque! 
+                            Impedit quod accusamus, repudiandae facilis voluptatum officia odit rerum culpa ipsa eveniet iusto.
+                        </p>
+
+                        <div class="user-details">
+                            <p class="text">Artist Name : Ganendhar</p>
+                            <p class="text">Contact No: +91 123489291</p>
+                            <p class="text">Email id : abc@gmail.com</p>
+                        </div>
+                        <button class="btn btn-md btn-info">Contact Artist</button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-4">
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a href="" class="nav-link">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link">Email Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link">About Us</a>
-                    </li>
-                </ul>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-content">
+                        <img src="first.jpg" alt="first image" class="img img-fluid">
+                        <p class="text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Voluptatem, suscipit mollitia. Pariatur eius asperiores reprehenderit vel doloremque! 
+                            Impedit quod accusamus, repudiandae facilis voluptatum officia odit rerum culpa ipsa eveniet iusto.
+                        </p>
+
+                        <div class="user-details">
+                            <p class="text">Artist Name : Ganendhar</p>
+                            <p class="text">Contact No: +91 123489291</p>
+                            <p class="text">Email id : abc@gmail.com</p>
+                        </div>
+                        <button class="btn btn-md btn-info">Contact Artist</button>
+                    </div>
+                </div>
             </div>
         </div>
+
+
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-content">
+                        <img src="second.jpg" alt="first image" class="img img-fluid" style="height: 180px;">
+                        <p class="text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Voluptatem, suscipit mollitia. Pariatur eius asperiores reprehenderit vel doloremque! 
+                            Impedit quod accusamus, repudiandae facilis voluptatum officia odit rerum culpa ipsa eveniet iusto.
+                        </p>
+
+                        <div class="user-details">
+                            <p class="text">Artist Name : Ganendhar</p>
+                            <p class="text">Contact No: +91 123489291</p>
+                            <p class="text">Email id : abc@gmail.com</p>
+                        </div>
+                        <button class="btn btn-md btn-info">Contact Artist</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>  
+
+  <!-- footer section -->
+    <div class="container-fluid bg-dark text-white mt-5">
+        <div class="row">
+           <div class="col-lg-4">
+               <ul class="nav flex-column">
+                   <li class="nav-item">
+                       <a href="nav-item">What is Art Gallery Expo</a>
+                   </li>
+                   <li class="nav-item">
+                    <a href="nav-item">Who we are?</a>
+                </li>
+               
+               </ul>
+           </div>
+           <div class="col-lg-4">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a href="nav-item">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                 <a href="nav-item">About Us</a>
+             </li>
+             
+            </ul>
+           </div>
+           <div class="col-lg-4">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a href="nav-item">Follow Us on</a>
+                </li>
+                <li class="nav-item">
+                 <i class="fas fa-clock" style="font-size: 20px;"></i>
+             </li>
+             
+            </ul>
+           </div>
+           
+        </div>
     </div>
+  <!-- footer ends here -->
 </body>
 </html>
