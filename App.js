@@ -3,11 +3,14 @@ const express = require("express");
 const hbs =  require("hbs");
 const nodemailer = require("nodemailer");
 const app = express();
+const fs = require("fs");
+//const store = require("./middleware/multer");
 require("./db/conn");
+const store = require("./middleware/multer");
 const Posts = require("./models/post");
 const Users = require("./models/registration");
 const { urlencoded } = require("body-parser");
-
+const controller = require("./controllers/controllers");
 const port = process.env.PORT||8001;
 const staticPath = path.join(__dirname,"../public");
 const templatesPath = path.join(__dirname,"./templates/views");
@@ -156,35 +159,30 @@ app.get("/ViewAll", async(req,res)=>{
 })
 
 
+
 app.get("/Posts", (req,res)=>{
    res.render("Post");
 })
 
-app.post("/Post",async(req,res)=>{
-    
-   try {
-
-    const author = req.body.author;
-    const desc = req.body.desc;
-    const image = req.body.image;
-
-    console.log(author);
-    console.log(desc);
-    //console.log(image);
-    const createdPost = new Posts({
-       author,desc,image});
-
-    await createdPost.save();
-
+app.post("/Posts",store.array('image',3),(req,res)=>{
     res.send("Post created successfully");
-       
-   } catch (error) {
-      console.log(error);
-   }
+    //res.send(store);
+    //console.log(store);
+
+    //converting images into base 64 encoding
+
+    const files = req.file;
+    const imgArray = files.map((file)=>{
+        //now we are storing all the images that are there in the uploads into the img variable
+
+        let img = fs.readFileSync(file.path);
+        console.log(img);
+    })
+    //console.log(file);
 })
-
-
-
+// app.post("/Posts",store,controller.uploads,async(req,res)=>{
+    
+// });
 app.listen(port,()=>{
     console.log("connect to the server on the port : "+port);
 })

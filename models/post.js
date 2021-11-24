@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema({
    
-    author:{
+    file:{
         type:String,
         requried:true,
     },
@@ -11,7 +11,7 @@ const PostSchema = new mongoose.Schema({
         required:true,
 
     },
-    image:{
+    imageBase64:{
         type:String,
         required:true
     }
