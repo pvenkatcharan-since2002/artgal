@@ -4,9 +4,10 @@ const hbs =  require("hbs");
 const nodemailer = require("nodemailer");
 const app = express();
 const fs = require("fs");
+app.use("/",require("./routers/routers"));
 //const store = require("./middleware/multer");
 require("./db/conn");
-const store = require("./middleware/multer");
+const uploads = require("./middleware/multer");
 const Posts = require("./models/post");
 const Users = require("./models/registration");
 const { urlencoded } = require("body-parser");
@@ -18,7 +19,8 @@ const partialsPath = path.join(__dirname,"./templates/partials");
 console.log(templatesPath);
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
-app.set("view engine","hbs");
+
+app.set("view engine","ejs");
 
 app.set("views",templatesPath);
 hbs.registerPartials(partialsPath);
@@ -126,63 +128,6 @@ app.post("/login",async(req,res)=>{
         
     }
 })
-
-
-// getting all the posts posted 
-
-app.get("/ViewAll", async(req,res)=>{
-   //res.send("I'm from view all");
-   try {
-    const viewallusers = await Posts.findById();
-    const allusers = await Promise.all(
-        viewallusers.map((key)=>{
-            Posts.find();
-        })
-    );
-    res.json(viewallusers);
-    // res.send(allusers);
-    // console.log(allusers);
-
-    
-    res.send()
-    console.log(allusers);
-    res.render("ViewAllPosts",{
-        authorname : author,
-        image : image,
-        desc : desc
-
-    });
-       
-   } catch (error) {
-       console.log("Error occured while visiting the all posts");
-   }
-})
-
-
-
-app.get("/Posts", (req,res)=>{
-   res.render("Post");
-})
-
-app.post("/Posts",store.array('image',3),(req,res)=>{
-    res.send("Post created successfully");
-    //res.send(store);
-    //console.log(store);
-
-    //converting images into base 64 encoding
-
-    const files = req.file;
-    const imgArray = files.map((file)=>{
-        //now we are storing all the images that are there in the uploads into the img variable
-
-        let img = fs.readFileSync(file.path);
-        console.log(img);
-    })
-    //console.log(file);
-})
-// app.post("/Posts",store,controller.uploads,async(req,res)=>{
-    
-// });
 app.listen(port,()=>{
     console.log("connect to the server on the port : "+port);
 })
