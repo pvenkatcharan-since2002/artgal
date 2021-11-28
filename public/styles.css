@@ -1,0 +1,28 @@
+.upperpart span{
+   
+    border-radius: 20px;
+    font-style: italic;
+}
+.d-flex button{
+    align-items: center;
+    justify-content: center;
+}
+.d-flex button{
+    height: 50px;
+    background-color: rgba(250, 37, 250, 0.966);
+    border:none;
+    border-radius: 20px;
+    padding:2px 20px;
+}
+.aboutus img{
+    width: 98%;
+    height: 500px;
+}@media screen and (min-width: 411px) {
+   .upperpart p{
+       font-size: 16px;
+   }
+   .d-flex button{
+       height:54px;
+       width: 150px;
+   }
+  }

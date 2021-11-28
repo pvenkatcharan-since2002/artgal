@@ -1,6 +1,6 @@
 const path = require("path");
 const express = require("express");
-const hbs =  require("hbs");
+
 const nodemailer = require("nodemailer");
 const app = express();
 const fs = require("fs");
@@ -17,13 +17,14 @@ const staticPath = path.join(__dirname,"../public");
 const templatesPath = path.join(__dirname,"./templates/views");
 const partialsPath = path.join(__dirname,"./templates/partials");
 console.log(templatesPath);
+
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
-
+app.use(express.static("public"));
 app.set("view engine","ejs");
 
 app.set("views",templatesPath);
-hbs.registerPartials(partialsPath);
+// hbs.registerPartials(partialsPath);
 //app.use(express.static("public"));
 
 express.urlencoded({extended:false})

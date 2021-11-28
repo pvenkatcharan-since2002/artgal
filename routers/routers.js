@@ -48,5 +48,8 @@ route.get('/ViewAll', (req, res) => {
 });
 route.get("/ViewAll",(req,res)=>{
     res.render("AllPosts");
+});
+route.get("/image:id/coment",(req,res)=>{
+	res.send("hello");
 })
 module.exports = route;
