@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+    <link rel="stylesheet" href="./main.css">
     <title>Welcome | ArtGalleryExpo</title>
 </head>
 <body>
@@ -31,9 +31,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/ViewAll">View All Posts</a>
             </li>
-            <li class="nav-item">
-              <a href="/dashboard" class="nav-link">Dashboards</a>
-            </li>
+           
               <li class="nav-item">
                 <a class="nav-link" href="/login">Login</a>
               </li>
@@ -43,10 +41,11 @@
         </div>
       </nav>
     <div class="container">
-        <h1 class="text">Welcome @ <%=UserName%></h1>
+        <h1 class="text text-center">Welcome @ <span class="text text-success"><%=UserName%></span></h1>
         <div class="row">
             <!-- {{!-- getting the logged in user details --}} -->
-        
+            <p class="text-center">Join With Us, Become a online-artist</p>
+          <img src="./second.jpg" alt="">
         </div>
     </div>
 </body>

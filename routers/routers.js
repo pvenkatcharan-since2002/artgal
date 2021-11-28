@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require("path");
 const ImageSchema = require("../models/post");
 const uploads = require("../middleware/multer");
-console.log("hello");
+//console.log("hello");
 const file_path = path.join(__dirname,"../uploads/");
 
 route.post("/Posts",uploads.single('image'),(req,res,next)=>{
@@ -49,7 +49,7 @@ route.get('/ViewAll', (req, res) => {
 route.get("/ViewAll",(req,res)=>{
     res.render("AllPosts");
 });
-route.get("/image:id/coment",(req,res)=>{
-	res.send("hello");
-})
+// route.get("/image:id/coment",(req,res)=>{
+// 	res.send("hello");
+// })
 module.exports = route;
