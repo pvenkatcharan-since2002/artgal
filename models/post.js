@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-
+const comment = require("./comment");
+const user = require("./registration");
 const uploadSchema = mongoose.Schema({
     name: String,
     desc: String,
@@ -7,7 +8,21 @@ const uploadSchema = mongoose.Schema({
     {
         data: Buffer,
         contentType: String
-    }
+    },
+    createdAt: { type: Date, default: Date.now },
+    author: {
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "user"
+        },
+        username: String
+    },
+    comments: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "comment"
+        }
+    ]
 });
 
 const Imageschema = new mongoose.model("imageupload",uploadSchema);
