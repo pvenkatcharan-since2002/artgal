@@ -1,16 +1,21 @@
 
-const express = require("express").Router();
+const express = require("express").Router({ mergeParams: true });
 const route = express;
+const bodyparser = require("body-parser");
 const fs = require("fs");
 const path = require("path");
+const flash = require("req-flash");
 const ImageSchema = require("../models/post");
 const uploads = require("../middleware/multer");
 const Imageschema = require("../models/post");
 const Comment = require("../models/comment");
+const users = require("../models/registration");
 
 //console.log("hello");
-const file_path = path.join(__dirname,"../uploads/");
+const jsonParser = bodyparser.json();
 
+route.use(bodyparser.urlencoded({extended:false}));
+const file_path = path.join(__dirname,"../uploads/");
 route.post("/Posts",uploads.single('image'),(req,res,next)=>{
     var obj = {
 		name: req.body.name,
@@ -72,7 +77,7 @@ route.get("/image:id",(req,res)=>{
 const template_path = path.join(__dirname,"../templates");
 			console.log(template_path);
 
-route.get("/images:id/comment",(req,res)=>{
+route.get("/images:id/comment/new",(req,res)=>{
 	ImageSchema.findById(req.params.id, function (err, foundresults) {
 		if (err) {
 			console.log(err);
@@ -82,37 +87,41 @@ route.get("/images:id/comment",(req,res)=>{
 		}
 	});
 });
-route.post("/images:id/comment",  function (req, res) {
-	
-	Imageschema.findById(req.params.id, function (err, res) {
+route.post("/comments/new",(req,res)=>{
+//	console.log(JSON.stringify(req.body));
+	//const usercomment = JSON.stringify(req.body.usercomment);
+	ImageSchema.findById(req.params.id, function (err, campground) {
 		if (err) {
 			console.log(err);
-			res.redirect("/images:id/comment");
+			res.redirect("/image:id");
 		}
 		else {
 			// create new comment
-			Comment.create(req.body.comment, function (err, res_comment) {
+			Comment.create(req.body.comment, function (err, comment) {
 				if (err) {
-					req.flash("error", "Something went wrong");
+					res.send("something went wrong");
 					console.log(err);
 				}
 				else {
 					// add username and id to comment
-					res_comment.author.id = req.user._id;
-					res_comment.author.username = req.user.username;
+					comment.author.id = req.user.id;
+					comment.author.username = req.user.username;
 					// save comment
-					res_comment.save();
+					comment.save();
 					// connect new comment to campground
-					res.comments.push(res_comment);
-					res.save();
-					console.log(res_comment);
+					campground.comments.push(comment);
+					campground.save();
+					console.log(comment);
 					// redirect to campground show route
 					req.flash("success", "Successfully added a comment.");
-					res.redirect("/images" + res._id);
+					res.redirect("/image:id/" + campground._id);
 				}
 			});
 		}
 	});
+	
 });
+	
+
 
 module.exports = route;

@@ -3,7 +3,7 @@
     border-radius: 20px;
     font-style: italic;
 }
-.d-flex button{
+.d-flex #Explore_btn{
     align-items: center;
     justify-content: center;
 }
@@ -25,4 +25,18 @@
        height:54px;
        width: 150px;
    }
+  }
+.nav .social-btn{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+  }
+
+  .nav .social-btn button{
+      background-color: rgba(250, 37, 250, 0.966);
+      width:130px;
+      border-radius: 10px;
+      padding-top:10px;
+      padding-bottom: 10px;
+      cursor: pointer;
   }

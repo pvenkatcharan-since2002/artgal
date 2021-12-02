@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const comment = require("./comment");
 const user = require("./registration");
-const uploadSchema = mongoose.Schema({
+const uploadSchema = new mongoose.Schema({
     name: String,
     desc: String,
     img:

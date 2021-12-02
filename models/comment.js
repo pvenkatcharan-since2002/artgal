@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const comment = require("./comment");
 const user = require("./registration");
-const commentSchema = mongoose.Schema({
+const commentSchema =  mongoose.Schema({
     text: {
         type:String
     },
@@ -14,4 +14,5 @@ const commentSchema = mongoose.Schema({
         username: String
     }
 });
-module.exports = mongoose.model("comment",commentSchema);
+const Comment= new mongoose.model("comment",commentSchema);
+module.exports = Comment;
