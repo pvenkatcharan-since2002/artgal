@@ -1,4 +1,5 @@
-var Imageschema = require("../models/post"),
+var express = require("express");
+	Imageschema = require("../models/post"),
 	Comment = require("../models/comment");
 
 // middleware object

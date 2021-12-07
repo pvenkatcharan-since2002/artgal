@@ -7,7 +7,7 @@ const path = require("path");
 const flash = require("req-flash");
 const ImageSchema = require("../models/post");
 const uploads = require("../middleware/multer");
-const Imageschema = require("../models/post");
+// const Imageschema = require("../models/post");
 const Comment = require("../models/comment");
 const users = require("../models/registration");
 
@@ -78,6 +78,7 @@ const template_path = path.join(__dirname,"../templates");
 			console.log(template_path);
 
 route.get("/images:id/comment/new",(req,res)=>{
+	console.log(req.url);
 	ImageSchema.findById(req.params.id, function (err, foundresults) {
 		if (err) {
 			console.log(err);
@@ -88,7 +89,7 @@ route.get("/images:id/comment/new",(req,res)=>{
 	});
 });
 route.post("/comments/new",(req,res)=>{
-//	console.log(JSON.stringify(req.body));
+	console.log(JSON.stringify(req.body));
 	//const usercomment = JSON.stringify(req.body.usercomment);
 	ImageSchema.findById(req.params.id, function (err, campground) {
 		if (err) {

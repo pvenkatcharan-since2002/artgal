@@ -10,6 +10,19 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
     <title>Art Gallery Expo | Sign in</title>
+    <style>
+      .card{
+        box-shadow: -20px 10px 20px grey;
+          
+      }
+      .login{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color:rgb(160, 92, 160);
+        margin-top:100px;
+        font-size: 50px;
+        text-shadow: -2px 5px 10px grey;
+      }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -38,18 +51,21 @@
           </ul>
         </div>
       </nav>
-    <div class="container">
+    <div class="container card mt-5">
        
         <div class="row">
             <div class="col-lg-8">
                 <div class="card-body py-5">
-                    <form action="/login" method="POST">
+                    <form action="/login" method="POST" class="mt-5 ml-5">
                         
                         <input type="email" class="form-control my-3" placeholder="Enter your email" name="useremail"required>
                         <input type="password" class="form-control my-3" placeholder="Enter your password" name="userpassword"required>
                         <button type="submit" class="btn btn-dark btn-md"> Login</button>
                     </form>
                 </div>
+            </div>
+            <div class="col-lg-4 login">
+              <p class="text">LOGIN HERE</p>
             </div>
         </div>
     </div>
