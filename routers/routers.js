@@ -11,20 +11,29 @@ const uploads = require("../middleware/multer");
 const Comment = require("../models/comment");
 const users = require("../models/registration");
 const Users = require("../models/registration");
+const { Router } = require("express");
 
 //console.log("hello");
 const jsonParser = bodyparser.json();
 
 route.use(bodyparser.urlencoded({extended:false}));
 const file_path = path.join(__dirname,"../uploads/");
+
 route.post("/Posts",uploads.single('image'),(req,res,next)=>{
+	console.log(req.body.artist_name);
     var obj = {
 		name: req.body.name,
 		desc: req.body.desc,
 		img: {
 			data: fs.readFileSync(path.join(file_path + req.file.filename)),
 			contentType: 'image/png'
-		}
+		},
+		artist_name:req.body.artist_name,
+		materials_used:req.body.materials_used,
+		contact_details:req.body.contact_details,
+		payment_id:req.body.payment_id,
+		base_price:req.body.base_price
+		
 	}
 	ImageSchema.create(obj, (err, item) => {
 		if (err) {
@@ -123,7 +132,16 @@ route.post("/comments/new",async(req,res)=>{
 		console.log(error);
 	}
 });
-	
+route.get('/logout', function(req, res, next) {
+	// remove the req.user property and clear the login session
+	req.logout();
+  
+	// destroy session data
+	req.session = null;
+  
+	// redirect to homepage
+	res.redirect('/login');
+  });
 
 
 module.exports = route;

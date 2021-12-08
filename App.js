@@ -78,6 +78,12 @@ app.get("/",(req,res)=>{
 app.get("/about",(req,res)=>{
     res.render("about");
 })
+app.get("/TermsandConditons",(req,res)=>{
+    res.render("T&C");
+})
+app.get("/contactus",(req,res)=>{
+    res.render("contactus");
+})
 app.post("/signup",async(req,res)=>{
    // console.log(res.username);
     try {

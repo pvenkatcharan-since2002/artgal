@@ -25,7 +25,7 @@
               
                    
                 <img src="data:image/<%=image.img.contentType%>;base64,
-                <%=image.img.data.toString('base64')%>" class="img img-fluid" style="width:300px;height:250px"/>
+                <%=image.img.data.toString('base64')%>" class="img img-fluid" style="width:500px;height:350px"/>
                
                 <div class="card-body" style="width:300px">
                     <h5><%= image.name %></h5>
@@ -33,7 +33,7 @@
                     <br>
                     <p><%= image.desc %></p>
                     <div class="comment-section d-flex btn-group">
-                        <a href="/image<%= image._id%>" class="btn btn-warning">Comment</a>
+                        <a href="/image<%= image._id%>" class="btn btn-warning">PRICE :<%= image.base_price%></a>
                     </div>
                 </div>
         </div>
