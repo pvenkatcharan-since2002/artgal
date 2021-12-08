@@ -75,7 +75,9 @@ app.get("/dashboard",(req,res)=>{
 app.get("/",(req,res)=>{
     res.send("Welcome to Art Gallery Expo")
 });
-
+app.get("/about",(req,res)=>{
+    res.render("about");
+})
 app.post("/signup",async(req,res)=>{
    // console.log(res.username);
     try {
