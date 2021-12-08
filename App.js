@@ -4,6 +4,11 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const app = express();
 const fs = require("fs");
+const flash = require("connect-flash"),
+    passport = require("passport"),
+    localstrategy = require("passport-local"),
+    methodOverride = require("method-override");
+
 app.use("/",require("./routers/routers"));
 //const store = require("./middleware/multer");
 require("./db/conn");
@@ -21,6 +26,8 @@ console.log(templatesPath);
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(express.static("public"));
+app.use(express.static("views"));
+
 app.set("view engine","ejs");
 
 app.set("views",templatesPath);
@@ -28,6 +35,26 @@ app.set("views",templatesPath);
 //app.use(express.static("public"));
 
 express.urlencoded({extended:false})
+
+// app.use(methodOverride("_method"));
+// app.use(flash());
+
+// app.use(require("express-session")({
+//     secret: "persona 5 foh life",
+//     resave: false,
+//     saveUninitialized: false,
+// }));
+// app.use(passport.initialize());
+// app.use(passport.session());
+// passport.use(new localstrategy(user.authenticate()));
+// passport.serializeUser(user.serializeUser());
+// passport.deserializeUser(user.deserializeUser());
+// app.use(function(req, res, next) {
+//     res.locals.currentuser = req.user;
+//     res.locals.error = req.flash("error");
+//     res.locals.success = req.flash("success");
+//     next();
+// });
 // rendering static files with hbs
 app.get("/",(req,res)=>{
     res.render("index");
@@ -62,7 +89,7 @@ app.post("/signup",async(req,res)=>{
         // console.log("User cpassword is : "+req.body.usercpassword);
         // console.log("User address is  : "+req.body.useraddress);
 
-        const {username,useremail,userpassword,usercpassword,useraddress} = req.body;
+        const {username,useremail,userpassword,usercpassword} = req.body;
 
         
         //console.log(`${username} and  ${useremail}`);
@@ -79,7 +106,7 @@ app.post("/signup",async(req,res)=>{
                 
             }else{
 
-            const user_details = new Users({username,useremail,userpassword,usercpassword,useraddress});
+            const user_details = new Users({username,useremail,userpassword,usercpassword});
             await user_details.save();
                 //sending the registrastion email
             

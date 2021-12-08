@@ -1,29 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<style>
+
+    .card{
+        box-shadow: -10px 10px 10px grey;
+    }
+
+</style>
 <body>
-    
 
-<div class="row">
-    <h1 style="text-align: center;">Add New Comment to <%= foundComment.name %></h1>
+    <div class="container">
+        <h1 style="text-align: center;">Add New Comment to <%= foundComment.name %></h1>
 
-    <div style="width: 30%; margin: 25px auto;">
-        <form action="/comments/new" method="POST">
-            
-               <input type="text" name="usercomment" placeholder="Enter your comment">
-                <input type="text" name="username" placeholder="Enter your name">
-            <div class="form-group">
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-            </div>
-        </form>
-        <a href="/viewAll">Go Back</a>
-    </div>
+  
+<div class="row card mt-5 mb-5">
+
+    <section class="section d-flex justify-content-center">
+        <div class="col-lg-8">
+            <form action="/comments/new" method="POST" class="mt-5 mb-5">
+                <div class="form-group">
+                    <input type="text" name="usercomment" placeholder="Enter your comment" class="form-control">
+
+                </div>
+                <div class="form-group">
+                    <input type="text" name="username" placeholder="Enter your name" class="form-control">
+                </div>
+                <div class="form-group btn-group d-flex">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
 </div>
-
+    </div>
 </body>
 </html>

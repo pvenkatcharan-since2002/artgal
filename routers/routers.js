@@ -10,6 +10,7 @@ const uploads = require("../middleware/multer");
 // const Imageschema = require("../models/post");
 const Comment = require("../models/comment");
 const users = require("../models/registration");
+const Users = require("../models/registration");
 
 //console.log("hello");
 const jsonParser = bodyparser.json();
@@ -31,7 +32,9 @@ route.post("/Posts",uploads.single('image'),(req,res,next)=>{
 		}
 		else {
 			// item.save();
-			res.redirect('/Posts');
+			res.send(`<div class="alert alert-success" role="alert">
+			Your Post published Successfully
+		  </div>`);
 		}
 	});
 })
@@ -69,58 +72,56 @@ route.get("/image:id",(req,res)=>{
 		else {
 			// render show template with that campground
 			const template_path = path.join(__dirname,"../templates/views/Show");
-			console.log(template_path);
+			//console.log(template_path);
 			res.render(template_path, { images: foundCampground });
 		}
 	});
 })
+
+
 const template_path = path.join(__dirname,"../templates");
 			console.log(template_path);
 
 route.get("/images:id/comment/new",(req,res)=>{
 	console.log(req.url);
+	const post_id = req.params.id
+	console.log(post_id);
+	console.log(post_id.name);
+	//console.log(actual_path);
+	//console.log(path.join(req.url,"../"));
 	ImageSchema.findById(req.params.id, function (err, foundresults) {
 		if (err) {
 			console.log(err);
 		}
 		else {
 			res.render("comments/new", { foundComment: foundresults });
+			//const demopath = path.join(foundresults,"./");
+			//console.log("demo path : ",demopath);
 		}
 	});
 });
-route.post("/comments/new",(req,res)=>{
-	console.log(JSON.stringify(req.body));
-	//const usercomment = JSON.stringify(req.body.usercomment);
-	ImageSchema.findById(req.params.id, function (err, campground) {
-		if (err) {
-			console.log(err);
-			res.redirect("/image:id");
-		}
-		else {
-			// create new comment
-			Comment.create(req.body.comment, function (err, comment) {
-				if (err) {
-					res.send("something went wrong");
-					console.log(err);
-				}
-				else {
-					// add username and id to comment
-					comment.author.id = req.user.id;
-					comment.author.username = req.user.username;
-					// save comment
-					comment.save();
-					// connect new comment to campground
-					campground.comments.push(comment);
-					campground.save();
-					console.log(comment);
-					// redirect to campground show route
-					req.flash("success", "Successfully added a comment.");
-					res.redirect("/image:id/" + campground._id);
-				}
-			});
-		}
-	});
+
+
+route.post("/comments/new",async(req,res)=>{
 	
+	try {
+		console.log(JSON.stringify(req.body));
+		console.log(req.params.id);
+	//const usercomment = JSON.stringify(req.body.usercomment);
+	const comment = req.body.usercomment;
+	const username = req.body.username;
+	const newComment = new Comment({
+		comment : comment,
+		username:username
+	});
+	 await newComment.save();
+	ImageSchema.comments=newComment;
+	res.render("/Show");
+	//console.log(req.url);
+	} catch (error) {
+		console.log("Error occured while posting a new comment");
+		console.log(error);
+	}
 });
 	
 

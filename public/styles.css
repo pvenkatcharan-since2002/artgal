@@ -8,11 +8,13 @@
     justify-content: center;
 }
 .d-flex button{
-    height: 50px;
-    background-color: rgba(250, 37, 250, 0.966);
+    height: 60px;
+    background-color: rgba(15, 14, 15, 0.966);
     border:none;
     border-radius: 20px;
     padding:2px 20px;
+   
+
 }
 .aboutus img{
     width: 98%;
@@ -33,10 +35,11 @@
   }
 
   .nav .social-btn button{
-      background-color: rgba(250, 37, 250, 0.966);
+      background-color: rgba(8, 8, 8, 0.966);
       width:130px;
       border-radius: 10px;
       padding-top:10px;
       padding-bottom: 10px;
       cursor: pointer;
+      color:white;
   }

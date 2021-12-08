@@ -23,9 +23,11 @@
 
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         color:rgb(190, 51, 190);
-        margin-top:200px;
-        font-size: 50px;
+        /* margin-top:200px; */
+        font-size: 25px;
         text-shadow: -2px 5px 10px grey;
+        text-align: center;
+        margin-top: 20px;
       }
     </style>
 </head>
@@ -40,9 +42,9 @@
             <li class="nav-item active">
               <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="/Gallery">Gallery</a>
-            </li>
+            </li> -->
             <li class="nav-item">
                 <a class="nav-link" href="/signup">Sign up</a>
               </li>
@@ -57,31 +59,33 @@
         </div>
       </nav>
     <div class="container card mt-5">
-        
+          <p class="text signup">
+            SIGN UP HERE
+          </p>
         <div class="row d-flex">
             <div class="col-lg-7">
                 <form action="/signup" method="POST" class="mt-5 ml-5 mb-5">
                     
                     <div class="form-group d-flex justify-space-between">
-                        <label for="Name">Name: </label>
+                        
                         <input type="text" class="form-control ml-3" placeholder="Enter  your name" name="username" required="please fill your name">
                     </div>
                     <div class="form-group d-flex justify-space-between">
-                        <label for="Name">Email:</label>
+                        
                         <input type="email" class="form-control ml-3" placeholder="Enter your email" name="useremail" required>
                     </div>
                     <div class="form-group d-flex justify-space-between">
-                        <label for="Name">Password:</label>
+                       
                         <input type="password" class="form-control ml-3" placeholder="Enter your password" name="userpassword" required>
                     </div>
                     <div class="form-group d-flex justify-space-between">
-                        <label for="Name">ConfirmPassword:</label>
+                        
                         <input type="password" class="form-control ml-3" placeholder="Type your password again"name="usercpassword" required> 
                     </div>
-                    <div class="form-group d-flex justify-space-between">
-                        <label for="Name">Address:</label>
+                    <!-- <div class="form-group d-flex justify-space-between">
+                        
                         <input type="text" class="form-control ml-3" placeholder="Enter your address" name="useraddress" required>
-                    </div>
+                    </div> -->
 
                     
                     
@@ -91,8 +95,8 @@
                     <button type="submit" class="btn btn-success btn-md px-3">Submit</button>
                 </form>
             </div>
-            <div class="co-lg-5 signup">
-              <p>SIGN UP HERE.</p>
+            <div class="co-lg-5">
+              <img src="signup.png" class="img img-fluid" alt="" style="width: 350px;">
             </div>
         </div>
     </div>

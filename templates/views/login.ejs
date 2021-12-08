@@ -8,7 +8,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" rel="stylesheet">
     <title>Art Gallery Expo | Sign in</title>
     <style>
       .card{
@@ -16,11 +18,12 @@
           
       }
       .login{
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        color:rgb(160, 92, 160);
-        margin-top:100px;
+       
+      font-family: 'Teko', sans-serif;
+        color:rgb(20, 7, 20);
+        /*margin-top:80px;*/
         font-size: 50px;
-        text-shadow: -2px 5px 10px grey;
+       text-shadow: -2px 1px 3px grey; 
       }
     </style>
 </head>
@@ -56,6 +59,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="card-body py-5">
+                  <p class="login text-center">LOGIN HERE</p>
                     <form action="/login" method="POST" class="mt-5 ml-5">
                         
                         <input type="email" class="form-control my-3" placeholder="Enter your email" name="useremail"required>
@@ -64,8 +68,9 @@
                     </form>
                 </div>
             </div>
-            <div class="col-lg-4 login">
-              <p class="text">LOGIN HERE</p>
+            <div class="col-lg-4 mt-5">
+              
+              <img src="login-image.png" alt="" style="width: 300px;">
             </div>
         </div>
     </div>
