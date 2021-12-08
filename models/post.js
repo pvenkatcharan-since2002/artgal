@@ -27,7 +27,12 @@ const uploadSchema = new mongoose.Schema({
     desc: String,
     createdAt: { type: Date, default: Date.now },
     
-   
+    comments: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "comment"
+        }
+    ]
 });
 
 const Imageschema = new mongoose.model("imageupload",uploadSchema);
