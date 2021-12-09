@@ -28,7 +28,7 @@ route.post("/Posts",uploads.single('image'),(req,res,next)=>{
 			data: fs.readFileSync(path.join(file_path + req.file.filename)),
 			contentType: 'image/png'
 		},
-		artist_name:req.body.artist_name,
+		user_name:req.body.user_name,
 		materials_used:req.body.materials_used,
 		contact_details:req.body.contact_details,
 		payment_id:req.body.payment_id,
@@ -66,6 +66,7 @@ route.get('/ViewAll', (req, res) => {
         }
     });
 });
+
 route.get("/ViewAll",(req,res)=>{
     res.render("AllPosts");
 });

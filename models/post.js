@@ -9,7 +9,7 @@ const uploadSchema = new mongoose.Schema({
         data: Buffer,
         contentType: String
     },
-    artist_name:{
+    user_name:{
         type:String
     },
     materials_used:{
